@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>angular.js</title>
+    <link rel='stylesheet' href='style.css'/>
+    <script src='http://code.angularjs.org/angular-1.0.1.min.js'></script>
+  </head>
+
+  <body ng-controller='userCtrl'>
+    <h1>Welcome back, {{user.name}}</h1>
+
+    <form>
+      <input type='text' ng-model='user.name'/>
+      <input type='submit' value={{user.greetLabel}} ng-click='user.greet()'/>
+    </form>
+
+    <div ng-show='user.showGreeting'>
+      <p>hi there!</p>
+    </div>
+
+    <ul>
+      <li ng-repeat='friend in user.friends'>{{friend.name}}</li>
+    </ul>
+
+    <script src='app.js'></script>
+    <script src='user.js'></script>
+  </body>
+
+</html>

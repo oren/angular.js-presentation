@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <style type='text/css'>
+      body {
+        font-family: 'Helvetica';
+        letter-spacing:-5px;
+        background:#000;
+        background-size:100%;
+        color:#fff;
+        margin:0;
+        padding:0;
+        font-weight:bold;
+      }
+
+      h1, h2, h3, p {
+        margin:0;
+      }
+
+      em, a {
+        font-style:normal;
+        color:#8dbd0c;
+      }
+
+      a {
+        background: #34d0e7;
+        color:#000;
+        text-decoration:none;
+      }
+
+      img {
+        width:100%;
+      }
+
+      div {
+        cursor:pointer;
+        cursor:hand;
+        position:absolute;
+        top:0;
+        left:0;
+      }
+
+      #slides {
+        position: fixed;
+        font-size: 30px;
+        bottom: 0;
+        letter-spacing: 1px;
+      }
+      #time {
+        position: fixed;
+        font-size: 30px;
+        bottom: 0;
+        left: 80px;
+        letter-spacing: 1px;
+      }
+      .kitty {
+        /* margin-left: auto auto; */
+      }
+    </style>
+    <script src="jquery-1.8.0.min.js"></script>
+
+    <script type='text/javascript'>
+
+      window.onload = function() {
+        var s = document.getElementsByTagName('div'), cur = 0;
+        if (!s) return;
+
+        function go(n) {
+          cur = n;
+          var i = 1e3, e = s[n];
+          for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+          e.style.display = 'inline';
+          e.style.fontSize = i + 'px';
+          if (e.firstChild.nodeName === 'IMG') {
+              document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+              e.firstChild.style.display = 'none';
+          } else {
+              document.body.style.backgroundImage = '';
+          }
+          while ( e.offsetWidth > window.innerWidth || e.offsetHeight > window.innerHeight) {
+              e.style.fontSize = (i -= 10) + 'px';
+          }
+          if (window.location.hash !== n) window.location.hash = n;
+          document.title = e.textContent || e.innerText;
+        }
+
+        document.onclick = function() {
+          go(++cur % (s.length));
+        };
+
+        document.onkeydown = function(e) {
+          (e.which === 39) && go(Math.min(s.length - 1, ++cur));
+          (e.which === 37) && go(Math.max(0, --cur));
+          (e.which === 32) && Ignite.start();
+        };
+
+        function parse_hash() {
+          return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+        };
+
+        if (window.location.hash) cur = parse_hash() || cur;
+
+        window.onhashchange = function() {
+          var c = parse_hash();
+          if (c !== cur) go(c);
+        };
+
+        go(cur);
+
+      (function() {
+
+        var index = 1;
+        var time = 14;
+        var timeElem = $('#time');
+        var slideNumElem = $('#slide-number');
+        var interval2 = null;
+
+        function start() {
+          restartTimer();
+          var intervalID = setInterval(function() {
+            index += 1;
+            restartTimer();
+
+            if(index === 21) { 
+              window.clearInterval(intervalID) 
+              window.clearInterval(intervalID2) 
+              timeElem.text('0');
+            } else {
+              go(Math.min(s.length - 1, ++cur));
+            };
+          }, 15000);
+        };
+
+        function restartTimer() {
+          intervalID2 = setInterval(function() {
+            timeElem.text(time);
+            slideNumElem.text(index);
+            time -= 1;
+            if(time === 0) { 
+              window.clearInterval(intervalID2) 
+              time = 14;
+            };
+          }, 1000);
+        };
+
+        Ignite =  {
+          start: start
+        };
+
+    })();
+      };
+
+    </script>
+
+  </head>
+<body>
+
+  <div><img src='meigs.png' /></div>
+  <div><img src='meigs2.png' /></div>
+  <div><img src='meigs3.png' /></div>
+  <div>Angular.js - HTML on Steroids</div>
+  <div>background</div>
+  <div>who is using it?</div>
+  <div>
+    <h1>wat</h1>
+    <li>declarative</li>
+    <li>2 way data binding</li>
+    <li>plain old js objects</li>
+    <li>uses jQuery</li>
+    <li>easy to test</li>
+  </div>
+
+  <p id='slides'><span id='slide-number'>1</span>/20</p>
+  <p id='time'>15</p>
+

@@ -1,0 +1,23 @@
+what?
+
+who uses it?
+DoubleClick - 200,000 loc
+Sony - YouTube app for PS3
+
+declerative style
+2 way data binding
+plain old js objects
+uses jOuery
+tests 
+
+
+you got to leave behind the 'jqeury way'. 
+in jQuery when u want to change the UI, you bind to an event and manipulate the dom.
+in angular, you change your model.
+
+service - share state across controllers.
+directive - manipulating the dom.
+the only place where u use jQuery is when you create your own directives.
+
+
+hellow

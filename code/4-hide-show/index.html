@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>angular.js</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  </head>
+
+  <body ng-controller='userCtrl'>
+    <h1>hello angular</h1>
+     <form>
+      <input type='text' ng-model='name' />
+      <input type='submit' value='greet user' ng-click="showGreet()" />
+    </form>
+
+    <h3 ng-show='showGreeting'>Welcome back, {{name}}</h3>
+
+    <script src='controllers.js'></script>
+  </body>
+
+</html>
+
