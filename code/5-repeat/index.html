@@ -13,8 +13,14 @@
       <input type='submit' value='greet user' ng-click="showGreet()" />
     </form>
 
-    <h3 ng-show='showGreeting'>Welcome back, {{name}}</h3>
-
+    <div ng-show='showGreeting'>
+      <h3> Welcome back, {{name}}</h3>
+      <h4>your friends are:</h4>
+      <ul>
+        <li ng-repeat='friend in friends'>{{friend.name}}</li>
+      </ul>
+    </div>
+ 
     <script src='controllers.js'></script>
   </body>
 
