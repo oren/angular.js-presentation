@@ -19,3 +19,6 @@ Code - https://github.com/vojtajina/WebApp-CodeLab/blob/angularjs/FinalProject/j
 http://igorminar.github.com/Memory-Game/app/  
 Code - https://github.com/IgorMinar/Memory-Game
 
+## Misc
+
+Angular's documantation - http://docs.angularjs.org/api/ng.directive:ngClick
