@@ -17,4 +17,3 @@ User.prototype.showGreet = function() {
     this.showGreeting = true;
   }
 };
-

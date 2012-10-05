@@ -1,3 +1,5 @@
+'use strict'
+
 function userCtrl($scope) {
 
   $scope.showGreet = function() {
