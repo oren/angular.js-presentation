@@ -20,4 +20,4 @@ directive - manipulating the dom.
 the only place where u use jQuery is when you create your own directives.
 
 
-hellow
+performance

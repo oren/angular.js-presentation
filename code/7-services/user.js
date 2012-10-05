@@ -1,3 +1,5 @@
+'use strict'
+
 function User() {
   this.name = '';
   this.showGreeting = false;

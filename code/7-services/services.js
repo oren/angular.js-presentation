@@ -1,22 +1,7 @@
 'use strict';
 
-/* Services */
+var services = angular.module('myApp.services', []);
 
-angular.module('calApp.service', []).
-  value('greeter', {
-    salutation: 'Hello',
-    localize: function(localization) {
-      this.salutation = localization.salutation;
-    },
-    greet: function(name) {
-      return this.salutation + ' ' + name + '!';
-    }
-  }).
-  value('user', {
-    load: function(name) {
-      this.name = name;
-    }
-  });
- 
- 
- 
+services.factory('user', function() {
+    return new User();
+});
