@@ -16,6 +16,6 @@ http://vojtajina.github.com/WebApp-CodeLab/FinalProject/index.html
 Code - https://github.com/vojtajina/WebApp-CodeLab/blob/angularjs/FinalProject/js/app.js
 
 **Memory Game**  
-http://igorminar.github.com/Memory-Game/app/
+http://igorminar.github.com/Memory-Game/app/  
 Code - https://github.com/IgorMinar/Memory-Game
 
