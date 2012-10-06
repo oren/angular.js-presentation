@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>angular.js</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  </head>
+
+  <body >
+    <div ng-controller='userCtrl'>
+      <h1>hello angular</h1>
+      <form>
+        <input type='text' ng-model='user.name' />
+        <input type='submit' value='greet user' ng-click="user.showGreet()" />
+      </form>
+
+      <div ng-controller='friendsCtrl' ng-show='user.showGreeting'>
+        <h3> Welcome back, {{user.name}}</h3>
+        <h4>your friends are:</h4>
+        <ul>
+          <li ng-repeat='friend in user.friends'>{{friend.name}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src='user.js'></script>
+    <script src="app.js"></script>
+    <script src="services.js"></script>
+    <script src='controllers.js'></script>
+
+  </body>
+
+</html>
+
